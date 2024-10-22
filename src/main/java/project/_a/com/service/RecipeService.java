@@ -31,5 +31,10 @@ public class RecipeService {
     public List<Recipe> getAllRecipes() {
         return recipeRepository.findAll();
     }
+    @Transactional
+    public List<Recipe> findRecipesByIngredients(List<String> ingredients) {
+        return recipeRepository.findRecipesByIngredients(ingredients, ingredients.size());
+    }
+
 }
 

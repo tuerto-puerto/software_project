@@ -27,5 +27,10 @@ public class RecipeController {
     public List<Recipe> getAllRecipes() {
         return recipeService.getAllRecipes();
     }
+
+    @PostMapping("/search")
+    public List<Recipe> findRecipesByIngredients(@RequestBody List<String> ingredients) {
+        return recipeService.findRecipesByIngredients(ingredients);
+    }
 }
 
