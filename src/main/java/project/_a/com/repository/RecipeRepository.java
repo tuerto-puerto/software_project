@@ -10,4 +10,3 @@ public interface RecipeRepository extends JpaRepository<Recipe, Long> {
     @Query("SELECT r FROM Recipe r JOIN r.ingredients i WHERE i.name IN :ingredients GROUP BY r HAVING COUNT(DISTINCT i.name) = :size")
     List<Recipe> findRecipesByIngredients(@Param("ingredients") List<String> ingredients, @Param("size") long size);
 }
-
