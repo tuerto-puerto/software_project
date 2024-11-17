@@ -33,7 +33,10 @@ public class RecipeService {
     }
     @Transactional
     public List<Recipe> findRecipesByIngredients(List<String> ingredients) {
-        return recipeRepository.findRecipesByIngredients(ingredients, ingredients.size());
+        List<String> normalizedIngredients = ingredients.stream()
+                .map(String::toLowerCase)
+                .toList();
+        return recipeRepository.findRecipesByIngredients(normalizedIngredients, normalizedIngredients.size());
     }
 
 }
