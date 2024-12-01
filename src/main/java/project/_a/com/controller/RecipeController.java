@@ -33,4 +33,3 @@ public class RecipeController {
         return recipeService.findRecipesByIngredients(ingredients);
     }
 }
-
