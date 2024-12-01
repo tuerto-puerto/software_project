@@ -12,4 +12,3 @@ public class RecipeDTO {
     private String name;
     private List<Ingredient> ingredients;
 }
-

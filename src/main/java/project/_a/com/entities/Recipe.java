@@ -20,7 +20,12 @@ public class Recipe {
     @Column(nullable = false)
     private String name;
 
-    @OneToMany(mappedBy = "recipe", cascade = CascadeType.ALL)
+    @ManyToMany
+    @JoinTable(
+            name = "recipe_ingredient",
+            joinColumns = @JoinColumn(name = "recipe_id"),
+            inverseJoinColumns = @JoinColumn(name = "ingredient_id")
+    )
     private List<Ingredient> ingredients;
 
     public Recipe(String name) {
